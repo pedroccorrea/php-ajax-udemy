@@ -3,6 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Solicitacao</title>
+        <script>
+            var ajax = new XMLHttpRequest();
+            ajax.open('GET', 'dados.txt');
+            ajax.send();
+            ajax.onreadystatechange = function () {
+                console.log(ajax.readyState);
+            }
+        </script>
     </head>
 
     <body>
