@@ -8,20 +8,19 @@
 </head>
 <body>
     <div id="nome"></div>
+    <div id="mensagem"></div>
 
     <script src="jquery.js"></script>
     <script>
         $.ajax({
             url:'nome.php'
-        }).then(sucesso, falha);
-
-        function sucesso(valor) {
+        }).done(function(valor) {
             $('div#nome').html(valor);
-        }
-
-        function falha() {
-            $('div#nome').html("Falha no carregamento.");
-        }
+        }).fail(function() {
+            $('div#nome').html('Falha no carregamento');
+        }).always(function() {
+            $('div#mensagem').html('Mensagem de qualquer coisa');
+        })
     </script>
 </body>
 </html>
