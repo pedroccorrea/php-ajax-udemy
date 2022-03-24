@@ -22,7 +22,7 @@
     <body>
         <main>
             <div id="janela_formulario">
-                <form id="formulario_transportadora">
+                <form id="formulario_transportadora" action="inserir_transportadora2.php" method="post">
 
                     <label for="nometransportadora">Nome da transportadora</label>
                     <input type="text" id="nometransportadora" name="nome">
@@ -46,32 +46,6 @@
                 </form>
             </div>
         </main>
-        
-        <script src="jquery.js"></script>
-        <script>
-            $('#formulario_transportadora').submit(function(e) {
-                e.preventDefault();
-                var formulario = $(this);
-                var retorno = inserirFormulario(formulario);
-            });
-
-            function inserirFormulario(dados) {
-                $.ajax({
-                    type:"POST",
-                    data:dados.serialize(),
-                    url:"inserir_transportadora.php",
-                    async:false
-                }).then(sucesso, falha);
-                
-                function sucesso(data) {
-                    console.log(data);
-                }
-
-                function falha() {
-                    console.log("erro");
-                }
-            }
-        </script>
     </body>
 </html>
 

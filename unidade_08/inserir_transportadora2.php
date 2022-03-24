@@ -22,6 +22,7 @@
         } else {
             echo "falha";
         }
+        header("location: formulario2.php");
     }
 ?>
 

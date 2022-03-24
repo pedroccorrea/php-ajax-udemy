@@ -1,4 +1,3 @@
-/* estilos da pesquisa */
 main div#janela_formulario {
     width:860px;
     margin:50px auto 30px;
@@ -62,4 +61,3 @@ main div#janela_formulario form #mensagem {
     margin:10px auto;
     display: none;
 }
-/* fim do estilo da pesquisa */
