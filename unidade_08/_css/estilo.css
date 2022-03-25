@@ -57,7 +57,13 @@ main div#janela_formulario form input[type="submit"] {
     cursor: pointer;
 }
 
-main div#janela_formulario form #mensagem {
+#mensagem {
+    width: 260px;
+    padding: 10px;
+    text-align: center;
     margin:10px auto;
     display: none;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
 }

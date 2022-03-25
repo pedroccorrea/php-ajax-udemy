@@ -45,32 +45,32 @@
                     <input type="submit" value="Confirmar Inclusão">
                 </form>
             </div>
+            <div id="mensagem">
+                <p></p>
+            </div>
         </main>
         
         <script src="jquery.js"></script>
         <script>
             $('#formulario_transportadora').submit(function(e) {
                 e.preventDefault();
-                var formulario = $(this);
-                var retorno = inserirFormulario(formulario);
-            });
-
-            function inserirFormulario(dados) {
                 $.ajax({
-                    type:"POST",
-                    data:dados.serialize(),
-                    url:"inserir_transportadora.php",
-                    async:false
-                }).then(sucesso, falha);
-                
-                function sucesso(data) {
-                    console.log(data);
-                }
+                    url: 'inserir_transportadora.php',
+                    type: 'POST',
+                    data: $('#formulario_transportadora').serialize(),
+                    success: function(data) {
+                        $sucesso = $.parseJSON(data)["Sucesso"];
+                        $mensagem = $.parseJSON(data)["mensagem"];
+                        $('div#mensagem').show();
 
-                function falha() {
-                    console.log("erro");
-                }
-            }
+                        if(!$sucesso) {
+                            $('div#mensagem').html($mensagem);
+                        } else {
+                            $('#mensagem').html($mensagem);
+                        }
+                    }
+                });
+            })
         </script>
     </body>
 </html>
