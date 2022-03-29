@@ -43,6 +43,10 @@
         
         <script src="jquery.js"></script>
         <script>
+            $('#janela_transportadoras ul li a.excluir').click(function(e) {
+                e.preventDefault();
+                $(this).parent().parent().fadeOut();
+            })
         </script>
     </body>
 </html>
