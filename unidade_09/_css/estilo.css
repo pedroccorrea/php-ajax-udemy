@@ -1,4 +1,3 @@
-/* estilos da pesquisa */
 main div#janela_formulario {
     width:860px;
     margin:50px auto 30px;
@@ -58,8 +57,13 @@ main div#janela_formulario form input[type="submit"] {
     cursor: pointer;
 }
 
-main div#janela_formulario form #mensagem {
+#mensagem {
+    width: 260px;
+    padding: 10px;
+    text-align: center;
     margin:10px auto;
     display: none;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
 }
-/* fim do estilo da pesquisa */
