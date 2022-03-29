@@ -48,6 +48,8 @@
                             }
                         ?>
                     </select>
+
+                    <input type="submit" value="Inserir Transportadora">
                 </form>
             </div>
 
@@ -64,7 +66,15 @@
                     type: 'POST',
                     data: $('#formulario').serialize(),
                     success: function(data) {
+                        $sucesso = $.parseJSON(data)["sucesso"];
+                        $mensagem = $.parseJSON(data)["mensagem"];
+                        $('#mensagem').show();
                         
+                        if($sucesso) {
+                            $('#mensagem').html($mensagem);
+                        } else {
+                            $('#mensagem').html($mensagem);
+                        }
                     }
                 })
             })
