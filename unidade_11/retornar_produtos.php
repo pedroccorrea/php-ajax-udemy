@@ -1,11 +1,10 @@
 <?php 
-    $callback = isset($_GET['callback']) ?  $_GET['callback'] : false;
     $conecta = mysqli_connect("localhost","root","","andes");
 
     if(isset($_GET['categoriaID'])) {
         $catID = $_GET['categoriaID'];
     } else {
-        $catID = 1;
+        $catID = 2;
     }
 
     $selecao  = "SELECT produtoID, nomeproduto FROM produtos ";

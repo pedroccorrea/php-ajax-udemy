@@ -1,0 +1,39 @@
+main div#janela_formulario {
+    width: 860px;
+    margin: 50px auto 30px;
+}
+
+main div#janela_formulario form {
+    width: 470px;
+    margin: 10px auto;
+}
+
+/*
+main div#janela_formulario form h2 {
+    font-family: sans-serif;
+    color: #9A9668;
+}
+
+main div#janela_formulario form p {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    background: #F00;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+*/
+
+main div#janela_formulario form label {
+    display: block;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #9A9668
+}
+
+main div#janela_formulario form select {
+    margin-bottom: 25px;
+}
