@@ -1,28 +1,27 @@
 <?php
-    // Criar objeto de conexao
-    $conecta = mysqli_connect("localhost","root","","andes");
-    if ( mysqli_connect_errno()  ) {
-        die("Conexao falhou: " . mysqli_connect_errno());
+    $conectar = mysqli_connect("localhost", "root", "", "andes");
+    if(mysqli_connect_errno()) {
+        die("Falha na conexão: " . mysqli_connect_errno());
     }
+?>
+<?php
+    if(isset($_POST["transportadoraID"])) {
+        $id = $_POST["transportadoraID"];
 
-    if( isset($_POST["transportadoraID"]) ) {
-        $tID = $_POST["transportadoraID"];
+        $del = "DELETE FROM
+                    transportadoras
+                WHERE
+                    transportadoraID = {$id}";
+        $con_del = mysqli_query($conectar, $del);
         
-        $exclusao = "DELETE FROM transportadoras ";
-        $exclusao .= "WHERE transportadoraID = {$tID}";
-        $con_exclusao = mysqli_query($conecta,$exclusao);
-        if($con_exclusao) {
+        $retorno =   array();
+
+        if($con_del) {
             $retorno["sucesso"] = true;
-            $retorno["mensagem"] = "Transportadora excluida com sucesso.";
         } else {
             $retorno["sucesso"] = false;
-            $retorno["mensagem"] = "Falha no sistema, tente mais tarde.";
         }
+
+        echo json_encode($retorno);
     }
-
-    // converter retorno em json
-    echo json_encode($retorno);
-
-    // Fechar conexao
-    mysqli_close($conecta);
 ?>
