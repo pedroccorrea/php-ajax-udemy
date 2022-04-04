@@ -2,7 +2,7 @@
     $callback = isset($_GET['callback']) ? $_GET['callback'] : false;
     $conectar = mysqli_connect("localhost", "root", "", "andes");
     if(mysqli_connect_errno()) {
-        die("Falha na conexão: " . mysqli_connect_errno());
+        die("Falha na conexção: " . mysqli_connect_errno());
     }
 
     $selecao = "SELECT
@@ -11,7 +11,7 @@
                     categorias";
     $categorias = mysqli_query($conectar, $selecao);
     if(!$categorias) {
-        die("Falha ao consultar o banco de dados");
+        die("Falha ao consultar o banco de dados.");
     }
 
     $retorno = array();
@@ -19,7 +19,7 @@
         $retorno[] = $linha;
     }
 
-    echo ($callback ? $callback . '(' : '') . json_encode($retorno) . ($callback? ')' : '');
+    echo ($callback ? $callback  . '(' : '') . json_encode($retorno) . ($callback? ')' : '');
 
     mysqli_close($conectar);
 ?>

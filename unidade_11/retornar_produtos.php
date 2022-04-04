@@ -1,23 +1,32 @@
-<?php 
-    $conecta = mysqli_connect("localhost","root","","andes");
-
-    if(isset($_GET['categoriaID'])) {
-        $catID = $_GET['categoriaID'];
+<?php
+    $conectar = mysqli_connect("localhost", "root", "", "andes");
+    if(mysqli_connect_errno()) {
+        die("Falha na conexão: " . mysqli_connect_errno());
+    }
+    if(isset($_GET["categoriaID"])) {
+        $id = $_GET["categoriaID"];
     } else {
-        $catID = 2;
+        $id = 2;
     }
 
-    $selecao  = "SELECT produtoID, nomeproduto FROM produtos ";
-    $selecao .= "WHERE categoriaID = {$catID}";
-    $produtos = mysqli_query($conecta,$selecao);
+    $produtos = "SELECT
+                    produtoID, nomeproduto
+                FROM
+                    produtos
+                WHERE
+                    categoriaID = {$id}";
+    $con_produtos = mysqli_query($conectar, $produtos);
+    if(!$con_produtos) {
+        die("Falha ao conectar com o banco de dados");
+    }
 
     $retorno = array();
-    while($linha = mysqli_fetch_object($produtos)) {
+
+    while ($linha = mysqli_fetch_object($con_produtos)) {
         $retorno[] = $linha;
-    } 	
+    }
 
     echo json_encode($retorno);
-    
-    // fechar conecta
-    mysqli_close($conecta);
+
+    mysqli_close($conectar);
 ?>
